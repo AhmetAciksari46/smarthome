@@ -1,0 +1,173 @@
+// Ses ile röle kontrolü
+// Bluetooth ile telefon üzerinden göndereceğiniz tüm konuşmalar, telefon içerisinde yazıya çevrilir ve direk metin olarak arduinoya gelir.
+//arduinoda gelen tüm yazılar için ne yapılması gerektiği tanımlanır.
+
+String voice;
+#define relay1 22
+#define relay2 24
+#define relay3 26
+#define relay4 28
+#define relay5 30
+#define relay6 32
+#define relay7 34
+#define relay8 36
+#define relay9 38
+#define relay10 40
+#define relay11 42
+#define relay12 44
+#define relay13 46
+#define relay14 48
+#define relay15 50
+#define relay16 52
+#define relay17 30
+#define relay18 31
+#define relay19 33
+#define relay20 35
+#define relay21 37
+#define relay22 39
+#define relay23 41
+#define relay24 43
+
+void setup() {
+
+pinMode(relay1, OUTPUT);       
+pinMode(relay2, OUTPUT);       
+pinMode(relay3, OUTPUT);       
+pinMode(relay4, OUTPUT);       
+pinMode(relay5, OUTPUT);       
+pinMode(relay6, OUTPUT);       
+pinMode(relay7, OUTPUT);       
+pinMode(relay8, OUTPUT);  
+pinMode(relay9, OUTPUT);
+pinMode(relay10, OUTPUT);
+pinMode(relay11, OUTPUT);
+pinMode(relay12, OUTPUT);
+pinMode(relay13, OUTPUT);
+pinMode(relay14, OUTPUT);
+pinMode(relay15, OUTPUT);
+pinMode(relay16, OUTPUT);
+pinMode(relay17, OUTPUT);
+pinMode(relay18, OUTPUT);
+pinMode(relay19, OUTPUT);
+pinMode(relay20, OUTPUT);
+pinMode(relay21, OUTPUT);
+pinMode(relay22, OUTPUT);
+pinMode(relay23, OUTPUT);
+pinMode(relay24, OUTPUT);
+Serial.begin(9600);
+}
+
+void loop() {
+while (Serial.available()){
+delay(10);
+char c = Serial.read();
+if (c == '#') {break;}
+voice += c;
+}
+if (voice.length() > 0) {
+Serial.println(voice);
+// you have to change between "".
+     if(voice == "*Işık 1 kapat") {digitalWrite(relay1, HIGH); } //this means "turn off the light 1"
+else if(voice == "*Işık 2 kapat") {digitalWrite(relay2, HIGH);}
+else if(voice == "*Işık 3 kapat") {digitalWrite(relay3, HIGH);}
+else if(voice == "*Işık 4 kapat") {digitalWrite(relay4, HIGH);}
+else if(voice == "*Işık 5 kapat") {digitalWrite(relay5, HIGH);}
+else if(voice == "*Işık 6 kapat") {digitalWrite(relay6, HIGH);}
+else if(voice == "*Işık 7 kapat") {digitalWrite(relay7, HIGH);}
+else if(voice == "*Işık 8 kapat") {digitalWrite(relay8, HIGH);}
+else if(voice == "*Işık 9 kapat") {digitalWrite(relay9, HIGH);}
+else if(voice == "*Işık 10 kapat") {digitalWrite(relay10, HIGH);}
+else if(voice == "*Işık 11 kapat") {digitalWrite(relay11, HIGH);}
+else if(voice == "*Işık 12 kapat") {digitalWrite(relay12, HIGH);}
+else if(voice == "*Işık 13 kapat") {digitalWrite(relay13, HIGH);}
+else if(voice == "*Işık 14 kapat") {digitalWrite(relay14, HIGH);}
+else if(voice == "*Işık 15 kapat") {digitalWrite(relay15, HIGH);}
+else if(voice == "*Işık 16 kapat") {digitalWrite(relay16, HIGH);}
+else if(voice == "*Işık 17 kapat") {digitalWrite(relay17, HIGH);}
+else if(voice == "*Işık 18 kapat") {digitalWrite(relay18, HIGH);}
+else if(voice == "*Işık 19 kapat") {digitalWrite(relay19, HIGH);}
+else if(voice == "*Işık 20 kapat") {digitalWrite(relay20, HIGH);}
+else if(voice == "*Işık 21 kapat") {digitalWrite(relay21, HIGH);}
+else if(voice == "*Işık 22 kapat") {digitalWrite(relay22, HIGH);}
+else if(voice == "*Işık 23 kapat") {digitalWrite(relay23, HIGH);}
+else if(voice == "*Işık 24 kapat") {digitalWrite(relay24, HIGH);}
+//the phone may detect it differently..For this you should write all possibilities. the phone detect 
+else if(voice == "*Işık bir kapat") {digitalWrite(relay1, HIGH);} //this means "turn off the light 1"
+else if(voice == "*Işık iki kapat") {digitalWrite(relay2, HIGH);}
+else if(voice == "*Işık üç kapat") {digitalWrite(relay3, HIGH);}
+else if(voice == "*Işık dört kapat") {digitalWrite(relay4, HIGH);}
+else if(voice == "*Işık beş kapat") {digitalWrite(relay5, HIGH);}
+else if(voice == "*Işık altı kapat") {digitalWrite(relay6, HIGH);}
+else if(voice == "*Işık yedi kapat") {digitalWrite(relay7, HIGH);}
+else if(voice == "*Işık sekiz kapat") {digitalWrite(relay8, HIGH);}
+else if(voice == "*Işık dokuz kapat") {digitalWrite(relay9, HIGH);}
+else if(voice == "*Işık on kapat") {digitalWrite(relay10, HIGH);}
+else if(voice == "*Işık onbir kapat") {digitalWrite(relay11, HIGH);}
+else if(voice == "*Işık oniki kapat") {digitalWrite(relay12, HIGH);}
+else if(voice == "*Işık onüç kapat") {digitalWrite(relay13, HIGH);}
+else if(voice == "*Işık ondört kapat") {digitalWrite(relay14, HIGH);}
+else if(voice == "*Işık onbeş kapat") {digitalWrite(relay15, HIGH);}
+else if(voice == "*Işık onaltı kapat") {digitalWrite(relay16, HIGH);}
+else if(voice == "*Işık onyedi kapat") {digitalWrite(relay17, HIGH);}
+else if(voice == "*Işık onsekiz kapat") {digitalWrite(relay18, HIGH);}
+else if(voice == "*Işık ondokuz kapat") {digitalWrite(relay19, HIGH);}
+else if(voice == "*Işık yirmi kapat") {digitalWrite(relay20, HIGH);}
+else if(voice == "*Işık yirmibir kapat") {digitalWrite(relay21, HIGH);}
+else if(voice == "*Işık yirmiiki kapat") {digitalWrite(relay22, HIGH);}
+else if(voice == "*Işık yirmiüç kapat") {digitalWrite(relay23, HIGH);}
+else if(voice == "*Işık yirmidört kapat") {digitalWrite(relay24, HIGH);}
+
+
+//to open the relays
+else if(voice == "*Işık 1 aç") {digitalWrite(relay1, LOW);}
+else if(voice == "*Işık 2 aç") {digitalWrite(relay2, LOW);}
+else if(voice == "*Işık 3 aç") {digitalWrite(relay3, LOW);}
+else if(voice == "*Işık 4 aç") {digitalWrite(relay4, LOW);}
+else if(voice == "*Işık 5 aç") {digitalWrite(relay5, LOW);}
+else if(voice == "*Işık 6 aç") {digitalWrite(relay6, LOW);}
+else if(voice == "*Işık 7 aç") {digitalWrite(relay7, LOW);}
+else if(voice == "*Işık 8 aç") {digitalWrite(relay8, LOW);}
+else if(voice == "*Işık 9 aç") {digitalWrite(relay9, LOW);}
+else if(voice == "*Işık 10 aç") {digitalWrite(relay10, LOW);}
+else if(voice == "*Işık 11 aç") {digitalWrite(relay11, LOW);}
+else if(voice == "*Işık 12 aç") {digitalWrite(relay12, LOW);}
+else if(voice == "*Işık 13 aç") {digitalWrite(relay13, LOW);}
+else if(voice == "*Işık 14 aç") {digitalWrite(relay14, LOW);}
+else if(voice == "*Işık 15 aç") {digitalWrite(relay15, LOW);}
+else if(voice == "*Işık 16 aç") {digitalWrite(relay16, LOW);}
+else if(voice == "*Işık 17 aç") {digitalWrite(relay17, LOW);}
+else if(voice == "*Işık 18 aç") {digitalWrite(relay18, LOW);}
+else if(voice == "*Işık 19 aç") {digitalWrite(relay19, LOW);}
+else if(voice == "*Işık 20 aç") {digitalWrite(relay20, LOW);}
+else if(voice == "*Işık 21 aç") {digitalWrite(relay21, LOW);}
+else if(voice == "*Işık 22 aç") {digitalWrite(relay22, LOW);}
+else if(voice == "*Işık 23 aç") {digitalWrite(relay23, LOW);}
+else if(voice == "*Işık 24 aç") {digitalWrite(relay24, LOW);}
+
+else if(voice == "*Işık bir aç") {digitalWrite(relay1, LOW);}
+else if(voice == "*Işık iki aç") {digitalWrite(relay2, LOW);}
+else if(voice == "*Işık üç aç") {digitalWrite(relay3, LOW);}
+else if(voice == "*Işık dört aç") {digitalWrite(relay4, LOW);}
+else if(voice == "*Işık beş aç") {digitalWrite(relay5, LOW);}
+else if(voice == "*Işık altı aç") {digitalWrite(relay6, LOW);}
+else if(voice == "*Işık yedi aç") {digitalWrite(relay7, LOW);}
+else if(voice == "*Işık sekiz aç") {digitalWrite(relay8, LOW);}
+else if(voice == "*Işık dokuz aç") {digitalWrite(relay9, LOW);}
+else if(voice == "*Işık on aç") {digitalWrite(relay10, LOW);}
+else if(voice == "*Işık onbir aç") {digitalWrite(relay11, LOW);}
+else if(voice == "*Işık oniki aç") {digitalWrite(relay12, LOW);}
+else if(voice == "*Işık onüç aç") {digitalWrite(relay13, LOW);}
+else if(voice == "*Işık ondört aç") {digitalWrite(relay14, LOW);}
+else if(voice == "*Işık onbeş aç") {digitalWrite(relay15, LOW);}
+else if(voice == "*Işık onaltı aç") {digitalWrite(relay16, LOW);}
+else if(voice == "*Işık onyedi aç") {digitalWrite(relay17, LOW);}
+else if(voice == "*Işık onsekiz aç") {digitalWrite(relay18, LOW);}
+else if(voice == "*Işık ondokuz aç") {digitalWrite(relay19, LOW);}
+else if(voice == "*Işık yirmi aç") {digitalWrite(relay20, LOW);}
+else if(voice == "*Işık yirmibir aç") {digitalWrite(relay21, LOW);}
+else if(voice == "*Işık yirmiiki aç") {digitalWrite(relay22, LOW);}
+else if(voice == "*Işık yirmiüç aç") {digitalWrite(relay23, LOW);}
+else if(voice == "*Işık yirmidört aç") {digitalWrite(relay24, LOW);}
+voice="";
+}
+}
