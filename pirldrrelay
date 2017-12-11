@@ -1,0 +1,30 @@
+#define PIR 2 //pır sensörünün sinyal pinini 2. pine
+//pir sensor pin
+#define role 3 //rolenin sinyal pinini 3.pine
+//relay sensor pin
+int LDR = A0;  //Ldr nin sinyal pinini analog 0 pinine
+//ldr sensor pin
+int PIRDURUMU; //pır sensörünün ölçümü için bir tanımlama
+int LDRDURUMU; //LDR sensörü içinde bir tanımlama
+void setup() {
+  Serial.begin(9600);
+  pinMode(role, OUTPUT); //role çıkış olarak tanımlandı
+  pinMode(PIR, INPUT);  //PIR giriş olarak ayarlandı
+}
+
+void loop(){
+LDRDURUMU = analogRead(LDR); //Analog bağlantıda LDR den okunan değer, LDRDURUMU olarak tanımlandı.
+PIRDURUMU = digitalRead(PIR);//Dijital bağlantıda PIR dan okunan değer,PIRDURUMU olarak tanımlandı.
+
+if(LDRDURUMU < 300) //LDR 0 1023 arasında okuduğu değer 300 ün altındaysa(ortam karanlıksa)
+{
+if (PIRDURUMU == HIGH) //PIR DURUMU HAREKET ALGILADIĞINDA
+{
+digitalWrite(role, HIGH);  //üstteki 2 koşul sağlandığında roleyi aktif hale getir.
+} 
+else //eğer üstteki koşullar sağlanmıyorsa
+{ 
+ digitalWrite(role, LOW); //roleyi pasif hale getir.
+}
+}
+}
